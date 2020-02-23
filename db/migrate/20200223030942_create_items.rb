@@ -10,5 +10,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :image_id
       t.boolean :sales_atatus, null: false, default: true
     end
+
   end
 end
