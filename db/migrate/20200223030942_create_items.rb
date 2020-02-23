@@ -3,11 +3,12 @@ class CreateItems < ActiveRecord::Migration[5.2]
     create_table :items do |t|
 
       t.timestamps
-      t.integer :jenre_id
-      t.string :name
-      t.integer :price
-      t.text :description
+      t.integer :jenre_id, null: false
+      t.string :name, null: false
+      t.integer :price, null: false
+      t.text :description, null: false 
       t.string :image_id
-      t.boolean :sales_atatus
+      t.boolean :sales_atatus, null: false, default: true
+    end
   end
 end
