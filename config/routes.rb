@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
 
   namespace :customers do
-  get '/' => "homes#top"
   get '/homes/about' => 'homes#about'
   get '/orders/finish' => 'orders#finish'
   get '/orders/check' => 'orders#check'
@@ -22,6 +21,8 @@ Rails.application.routes.draw do
   resources :cart_item, only: [:index]
   resources :item, only: [:index, :show]
   end
+
+  root "customers/homes#top"
 
 
   devise_for :admins, controllers: {

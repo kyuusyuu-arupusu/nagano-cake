@@ -6,8 +6,13 @@ class Customers::CustomersController < ApplicationController
   end
 
   def exit
+  	  customer = Customer.find(params[:id])
+      customer.destroy
+      redirect_to customers
   end
 
   def update
   end
+
+  
 end
