@@ -12,8 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_02_23_090905) do
 
-
-
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -29,9 +27,9 @@ ActiveRecord::Schema.define(version: 2020_02_23_090905) do
   create_table "cart_items", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "quantity", null: false
-    t.integer "customer_id", null: false
-    t.integer "item_id", null: false
+    t.integer "quantity"
+    t.integer "customer_id"
+    t.integer "item_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -40,16 +38,16 @@ ActiveRecord::Schema.define(version: 2020_02_23_090905) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "last_name", null: false
-    t.string "first_name", null: false
-    t.string "last_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.string "post_code", null: false
-    t.string "address", null: false
-    t.string "phone_number", null: false
-    t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "last_name"
+    t.string "first_name"
+    t.string "last_name_kana"
+    t.string "first_name_kana"
+    t.string "post_code"
+    t.string "address"
+    t.string "phone_number"
+    t.boolean "is_deleted"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -59,7 +57,6 @@ ActiveRecord::Schema.define(version: 2020_02_23_090905) do
     t.datetime "updated_at", null: false
     t.string "genre_name", null: false
     t.boolean "display_status", default: true, null: false
-
   end
 
   create_table "items", force: :cascade do |t|
@@ -83,20 +80,17 @@ ActiveRecord::Schema.define(version: 2020_02_23_090905) do
     t.datetime "updated_at", null: false
   end
 
-
-
- 
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "customer_id", null: false
-    t.integer "payment_method", default: 1, null: false
-    t.integer "postage", default: 800, null: false
-    t.integer "order_status", default: 1, null: false
-    t.integer "total_price", null: false
-    t.string "address", null: false
-    t.string "post_code", null: false
-    t.string "name", null: false
+    t.integer "customer_id"
+    t.integer "payment_method"
+    t.integer "postage"
+    t.integer "order_status"
+    t.integer "total_price"
+    t.string "address"
+    t.string "post_code"
+    t.string "name"
   end
 
   create_table "shipping_addresses", force: :cascade do |t|

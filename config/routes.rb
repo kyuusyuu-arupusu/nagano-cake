@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :admins do
-    resources :items, only: [:index, :show, :edit, :new]
+    resources :items, only: [:show, :index, :edit, :new]
     resources :orders, only: [:index, :show]
     resources :genres, only: [:index, :edit]
     resources :customers, only: [:index, :show, :edit]
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :cart_item, only: [:index]
   resources :item, only: [:index, :show]
   end
+
 
   devise_for :admins
   devise_for :customers
