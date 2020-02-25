@@ -18,22 +18,24 @@
           </div>
             <ul class="nav navbar-nav navbar-right">
               <% if customer_signed_in? %>
-                <li><a href="/">マイページ</a></li>
-                <li><a href=""> 商品一覧</a></li>
-                <li><a href="">注文履歴一覧</a></li>
+                <li><%= link_to "マイページ", root_path %></li>
+                <li><%= link_to "商品一覧", customers_items_path %></li>
+                <li><%=link_to '注文履歴一覧', customers_orders_path %></li>
                 <li class="">
-                  <%= link_to destroy_customer_session_path, method: "delete" do %>ログアウト</li>
+                  <%=link_to destroy_customer_session_path, method: "delete" do %>ログアウト</li>
                   <% end %>
               <% else %>
-                <li><a href="/">Top</a></li>
-                <li><a href="/customers/homes/about"> About</a></li>
-                <li><a href="/customers/sign_up"> 新規登録</a></li>
-                <li><a href="/customers/sign_in">ログイン</a></li>
-              <% end %>
+                <li><%= link_to "Top", root_path %></li>
+                <li><%= link_to "About", customers_homes_about_path %></li></li>
+                <li><%= link_to "新規登録", new_customer_registration_path %></li>
+                <li><%= link_to "ログイン", new_customer_session_path %></li></li>
+               <% end %>
             </ul>
+               
         </div>
       </nav>
     </hader>
       <%= yield %>
   </body>
 </html>
+               

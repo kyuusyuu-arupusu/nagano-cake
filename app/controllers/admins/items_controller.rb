@@ -6,8 +6,23 @@ class Admins::ItemsController < ApplicationController
   end
 
   def new
+  	@item = Item.new
+  end
+
+  def create
+  	item = Item.new(itme_params)
+  	item.save
+  	redirect_to admins_items_path
   end
 
   def edit
   end
+
+  private
+  def item_params
+  	params.require(:item).permit(:name, :price, :description, :image_id, :sales_atatus)
+  end
+
+
 end
+

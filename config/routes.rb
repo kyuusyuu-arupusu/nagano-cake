@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :show]
   resources :customers, only: [:show, :edit]
   resources :shipping_addresses, only: [:index, :edit]
-  resources :cart_item, only: [:index]
-  resources :item, only: [:index, :show]
+  resources :cart_items, only: [:index]
+  resources :items, only: [:index, :show, :create]
   end
 
   root "customers/homes#top"
