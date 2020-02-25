@@ -10,39 +10,35 @@
 
   <div class="row">
   	<div class="col-xs-9">
+  	  <%= form_for(@customer, url: customers_customer_path(@customer.id)) do |c| %>
 	  	<table class="table table-bordered">
 	  	  <tr>
 	  	  	<td>氏名</td>
-	  	  	<td></td>
+	  	  	<td><%= c.text_field :last_name %></td>
 	  	  </tr>
 	  	  <tr>
 	  	  	<td>カナ</td>
-	  	    <th></th>
-	  	</tr>
+	  	    <td><%= c.text_field :last_name_kana %></td>
+	  	  </tr>
 	      <tr>
 	      	<td>郵便番号</td>
-	      	<td></td>
+	      	<td><%= c.text_field :post_code %></td>
 	      </tr>
 	      <tr>
 	      	<td>住所</td>
-	        <td></td>
+	        <td><%= c.text_field :address, size: "10x20" %></td>
 	      </tr>
 	      <tr>
 	      	<td>電話番号</td>
-	        <td></td>
+	        <td><%= c.text_field :phone_number %></td>
 	      </tr>
 	      <tr>
 	      	<td>メールアドレス</td>
-	        <td></td>
+	        <td><%= c.text_field :email %></td>
 	      </tr>
-	  	</table>
+	  　</table>
+      <%= c.submit '編集内容を保存する' %>   
+	  <% end %>
 	</div>
-  </div>
-
-  <div class="row">
-  	<div class="col-xs-3"></div>
-  	<div class="col-xs-3">
-  	  <button type="button" class="btn btn-primary">編集内容を保存する</button>
-  	</div>
   </div>
 </div>
