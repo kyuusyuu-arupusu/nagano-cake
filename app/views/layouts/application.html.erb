@@ -10,6 +10,30 @@
   </head>
 
   <body>
+    <hader>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">ながのCAKE</a>
+          </div>
+            <ul class="nav navbar-nav navbar-right">
+              <% if customer_signed_in? %>
+                <li><a href="/">マイページ</a></li>
+                <li><a href=""> 商品一覧</a></li>
+                <li><a href="">注文履歴一覧</a></li>
+                <li class="">
+                  <%= link_to destroy_customer_session_path, method: "delete" do %>ログアウト</li>
+                  <% end %>
+              <% else %>
+                <li><a href="/">Top</a></li>
+                <li><a href="/customers/homes/about"> About</a></li>
+                <li><a href="/customers/sign_up"> 新規登録</a></li>
+                <li><a href="/customers/sign_in">ログイン</a></li>
+              <% end %>
+            </ul>
+        </div>
+      </nav>
+    </hader>
       <%= yield %>
   </body>
 </html>
