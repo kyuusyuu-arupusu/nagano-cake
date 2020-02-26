@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -18,15 +19,9 @@
           </div>
             <ul class="nav navbar-nav navbar-right">
               <% if customer_signed_in? %>
-<<<<<<< Updated upstream
                 <li><%= link_to "マイページ", root_path %></li>
                 <li><%= link_to "商品一覧", customers_items_path %></li>
                 <li><%=link_to '注文履歴一覧', customers_orders_path %></li>
-=======
-                <li><a href="/">マイページ</a></li>
-                <li><a href="/"> 商品一覧</a></li>
-                <li><a href="/">注文履歴一覧</a></li>
->>>>>>> Stashed changes
                 <li class="">
                   <%=link_to destroy_customer_session_path, method: "delete" do %>ログアウト</li>
                   <% end %>
