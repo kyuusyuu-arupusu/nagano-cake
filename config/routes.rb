@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :admins do
-    resources :items, only: [:show, :index, :edit, :new]
+    resources :items, only: [:show, :index, :edit, :new, :create]
     resources :orders, only: [:index, :show]
     resources :genres, only: [:index, :edit]
     resources :customers, only: [:index, :show, :edit]
@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :show]
   resources :customers, only: [:show, :edit, :update]
   resources :shipping_addresses, only: [:index, :edit]
-  resources :cart_item, only: [:index]
-  resources :item, only: [:index, :show]
+  resources :cart_items, only: [:index]
+  resources :items, only: [:index, :show]
   end
 
   root "customers/homes#top"
