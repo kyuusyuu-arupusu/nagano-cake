@@ -1,6 +1,6 @@
 class Admins::ItemsController < ApplicationController
   def index
-  	@itens = Item.all
+  	@items = Item.all
   end
 
   def show
