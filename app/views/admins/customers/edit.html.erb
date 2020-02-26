@@ -1,2 +1,57 @@
-<h1>Admins::Customers#edit</h1>
-<p>Find me in app/views/admins/customers/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-5">
+        <h2>会員編集画面</h2>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-xs-5">
+      <%= form_for(@customer, url: admins_customer_path(@customer.id)) do |c| %>
+          <table class="table">
+          <tr>
+          　　<td>会員ID</td>
+        　　　<td><%= @customer.id %></td>
+      　　　</tr>
+          <tr>
+            <td>氏名</td>
+            <td><%= c.text_field :last_name %> <%= c.text_field :first_name %></td>
+          </tr>
+          <tr>
+            <td>カナ</td>
+            <td><%= c.text_field :last_name_kana %> <%= c.text_field :first_name_kana %></td>
+          </tr>
+          <tr>
+            <td>郵便番号</td>
+            <td><%= c.text_field :post_code %></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td><%= c.text_field :address %></td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td><%= c.text_field :phone_number %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= c.text_field :email %></td>
+          </tr>
+          <tr>
+            <td>会員ステータス</td>
+            <td>
+            　　　<%= form_with(model: @customer, url: admins_customer_path(@customer), local: true) do |form| %>
+                　　<%= form.radio_button :gender, :male %>
+                　　<%= form.label :gender, "有効", {value: :male, style: "display: inline-block;"} %>
+                　　<%= form.radio_button :gender, :female %>
+                　　<%= form.label :gender, "退会済み", {value: :female, style: "display: inline-block;"} %>
+              <% end %>
+              </td>
+          </tr>
+      　</table>
+      <%= c.submit '変更を保存する', class: "btn btn-primary" %>   
+      <% end %>
+    </div>
+  </div>
+</div>
