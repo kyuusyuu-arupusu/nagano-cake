@@ -12,7 +12,6 @@ class Customers::RegistrationsController < Devise::RegistrationsController
 
   def create
   build_resource(sign_up_params)
-
     resource.save
     yield resource if block_given?
     if resource.persisted?
@@ -76,5 +75,6 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
+
   # end
 end
