@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/cart_item' => 'cart_items#destroy_all'
   resources :orders, only: [:index, :show]
   resources :customers, only: [:show, :edit, :update]
-  resources :shipping_addresses, only: [:index, :edit]
+  resources :shipping_addresses, only: [:index, :edit, :create, :destroy]
   resources :cart_items, only: [:index]
   resources :items, only: [:index, :show]
   end
