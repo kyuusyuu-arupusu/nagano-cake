@@ -11,6 +11,7 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   # end
 
  
+
   # GET /resource/edit
   # def edit
   #   super
