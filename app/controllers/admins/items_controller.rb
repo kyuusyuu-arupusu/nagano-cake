@@ -8,6 +8,7 @@ class Admins::ItemsController < ApplicationController
 
   def new
   	@item = Item.new
+    @genre = Genre.where(display_status: true)
   end
 
   def create

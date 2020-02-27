@@ -1,7 +1,7 @@
 class Admins::GenresController < ApplicationController
   def index
   	@genre = Genre.new
-  	@genres = Genre.all
+  	@genres = Genre.with_deleted
   end
 
   def create
