@@ -1,2 +1,27 @@
-<h1>ShippingAddresses#edit</h1>
-<p>Find me in app/views/shipping_addresses/edit.html.erb</p>
+<div class="container">
+  <h3>配送先編集</h3>
+  <div class="row">
+  	<div class="col-xs-8">
+  	<%= form_for(@shipping_address, url:customers_shipping_address_path(@shipping_address.id)) do |sh| %>
+  	  <table class="table table-bordered">
+        <tbody>
+          <tr>
+          	<td>郵便番号</td>
+          	<td><%= sh.text_field :post_code %></td>
+          </tr>
+          <tr>
+          	<td>住所</td>
+          	<td><%= sh.text_field :address %></td>
+          </tr>
+          <tr>
+          	<td>宛名</td>
+          	<td><%= sh.text_field :name %></td>
+          </tr>
+        </tbody>
+   	  </table>
+    <div class="col-xs-2">
+      <%= sh.submit "保存する", class:"btn btn-info" %>
+   	<% end %>
+   	</div>
+  </div>
+</div>
