@@ -1,2 +1,9 @@
-<h1>Admins::Homes#top</h1>
-<p>Find me in app/views/admins/homes/top.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-5">
+
+       <h2>管理者画面</h2>
+       <lavel class="order-count">本日の注文件数</lavel>&emsp; &emsp; <u><%= link_to @orders.count, admins_orders_path, class: "order-count" %></u>件
+     </div>
+   </div>
+</div>
