@@ -17,13 +17,13 @@
 		  <%= f.text_area :description, size: "32x6" %>
 
 		  <h4>ジャンル</h4>
-		  <%= f.collection_select :genre_id, Genre.all, :id ,:genre_name, :prompt => "選択してください" %>
+		  <%= f.collection_select :genre_id, Genre.all, :id ,:genre_name, :prompt => "--選択してください--" %>
 
 		  <h4>税抜価格</h4>
 		  <%= f.text_field :price, size: "30x10" %>
 
-		  <h4>販売<br>ステータス</h4>
-		  <%= f.select :sales_atatus, "--選択してください--" %>
+		  <h4>販売ステータス</h4>
+		  <%= f.select :sales_atatus, [["販売中","販売中"], ["売切れ", "売切れ"]], :include_blank =>"--選択してください--" %>
 
 		  <br><%= f.submit "登録", class:"btn btn-info" %>
 
