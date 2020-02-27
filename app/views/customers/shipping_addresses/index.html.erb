@@ -17,7 +17,7 @@
 	  	  	  <td><%= s.text_field :name %></td>
 	  	  	</tr>
 	  	  </table>
-	  	  <%= s.submit '登録する' %>
+	  	  <%= s.submit '登録する', class:"btn btn-info" %>
   	  <% end %>
   	</div>
   	<div class="col-xs-7">
@@ -27,20 +27,20 @@
       	  <th>住所</th>
       	  <th>宛名</th>
       	  <th></th>
-      	  
       	</thead>
+
 	    <% @shipping_addresses.each do |sa| %>
 	    <tbody>
 	      <td><%= sa.post_code %></td>
 	      <td><%= sa.address %></td>
 	      <td><%= sa.name %></td>
 	      <td>
-	      	<%= link_to "編集する", edit_customers_shipping_address_path(sa.id), class: "btn btn-primary" %>
+	      	<%= link_to "編集する", edit_customers_shipping_address_path(sa.id), class: "btn btn-info" %>
 	      	<%= link_to "削除する", customers_shipping_address_path(sa.id),method: :delete, "data-confirm" => "本当に削除しますか?", class: "btn btn-danger" %>
 	      </td>
 	    <% end %>
 	    </tbody>
 	  </table>
-	</td>
+	</div>
   </div>
 </div>

@@ -8,6 +8,7 @@ class Admins::ItemsController < ApplicationController
 
   def new
   	@item = Item.new
+    @genre = Genre.where(display_status: true)
   end
 
   def create
@@ -21,7 +22,7 @@ class Admins::ItemsController < ApplicationController
 
   private
   def item_params
-  	params.require(:item).permit(:name, :price, :description, :image_id, :sales_atatus)
+  	params.require(:item).permit(:name, :price, :description, :genre_id, :image_id, :sales_atatus)
   end
 
 

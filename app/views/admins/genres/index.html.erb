@@ -32,11 +32,11 @@
             <tr>
               <td><%= genre.genre_name %></td>
               <% if genre.display_status %>
-              <td>有効</td>
+                <td>有効</td>
               <% else %>
-              <td>無効</td>
+                <td>無効</td>
               <% end %>
-              <td><%= link_to "編集する", edit_admins_genre_path(genre), class:"btn btn-Primary" %></td>
+              <td><%= link_to "編集する", edit_admins_genre_path(genre), class:"btn btn-info" %></td>
             </tr>
            <% end %>
            <% end %>

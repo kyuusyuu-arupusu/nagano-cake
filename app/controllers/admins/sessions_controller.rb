@@ -29,5 +29,4 @@ class Admins::SessionsController < Devise::SessionsController
      devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :passward])
   end
 
-  
 end

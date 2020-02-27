@@ -15,18 +15,15 @@
     <% if @items.present? %>
     <% @items.each do |item| %>
       <tr>
-        <td>1</td>
-        <td>洋梨のチーズタルト</td>
-        <td>1,200</td>
-        <td>ケーキ</td>
-        <td>販売中</td>
-      </tr>
-      <tr>
-        <td><%= item.items %></td>
+        <td><%= item.id %></td>
         <td><%= item.name %></td>
         <td><%= item.price %></td>
-        <td><%= item.genre_id %></td>
-        <td><%= item.sales_atatus %></td>
+        <td><%= item.genre.genre_name %></td>
+          <% if item.sales_atatus %>
+            <td>販売中</td>
+          <% else %>
+            <td>売切れ</td>
+          <%end%>
       </tr>
      <% end %>
      <% end %>
