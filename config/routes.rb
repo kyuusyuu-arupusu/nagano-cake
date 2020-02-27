@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show]
     resources :genres, only: [:index, :edit, :create, :update]
     resources :customers, only: [:index, :show, :edit, :update]
-    get '/admins/homes/top' => "homes#top", as: "top"
+    get '/admins/homes/top' => "homes#top", as: 'top'
   end
 
 
