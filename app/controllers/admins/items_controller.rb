@@ -19,13 +19,14 @@ class Admins::ItemsController < ApplicationController
   end
 
   def edit
-    @itme = Item.find(params[:id])
+    @item = Item.find(params[:id])
+    @genre = Genre.where(display_status: true)
   end
 
   def update
-    item = Item.find(params[:id])
-    item.update(item_params)
-    reirect_to admins_item_path(@item.id)
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to admins_item_path(@item.id)
   end
 
   private
