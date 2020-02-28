@@ -1,21 +1,15 @@
 <div class="container">
   <div class="row">
-  	<div class="col-xs-2"></div>
-  	<div class="col-xs-8">
+  	<div class="col-xs-8 col-xs-offset-2">
   	  <h4>本当に退会しますか？<h4>
-  	  <p>退会すると会員登録情報や<br>s
+  	  <p>退会すると会員登録情報や<br>
   	  	これまでの購入履歴が閲覧できなくなります。<br>
-  	  退会する場合は、「退会する」をクリックしたください。
+  	  退会する場合は、「退会する」をクリックしください。
   	  </p>
-  	</div>
-  </div>
-  <div class="row">
-  	<div class="row">
-      <div class="col-sm-4 col-sm-offset-4">
-        <button type="button" class="btn btn-danger">退会しない</button>
-        <button type="button" class="btn btn-primary">退会する</button>
-      </div>
+      <%= link_to "退会しない", customers_customer_path(@customer.id),class:"btn btn-info" %>
+      <%= link_to "退会する", customers_customer_path, method: :delete, "data-confirm" => "本当に削除しますか?", class: "btn btn-danger" %> 
     </div>
   </div>
 </div>
+
 

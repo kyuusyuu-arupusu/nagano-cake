@@ -1,23 +1,28 @@
 class Customers::CustomersController < ApplicationController
   def show
      @customer = Customer.find(params[:id])
+     @shipping_addresses = ShippingAddress.all
   end
 
   def edit
-     @customer = Customer.find(params[:id])
-      
+     @customer = Customer.find(params[:id])      
   end
 
   def exit
-  	  customer = Customer.find(params[:id])
-      customer.destroy
-      redirect_to customers
+     @customer = Customer.find(params[:id])  
   end
 
   def update
       customer = Customer.find(params[:id])
       customer.update(customer_params)
       redirect_to customers_customer_path
+  end
+
+  def destroy
+      customer = Customer.find(params[:id])
+      customer.destroy
+      redirect_to root_path
+    
   end
 
   private
