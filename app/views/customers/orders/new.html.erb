@@ -1,0 +1,37 @@
+<div class="conteiner">
+  <div class="row">
+  	<div class="col-xs-1"></div>
+    <div class="col-xs-10">
+	  <h2>購入情報入力</h2>
+	  <%= form_with(model:@order, url:customers_orders_path, local: true) do |f| %>
+	   <strond><h3>支払方法</h3></strond>
+	</div>
+	<div class="row">
+	  <div class="col-xs-2"></div>
+	    <div class="col-xs-8">
+	  <%= f.radio_button :payment_method, :true %>
+      <%= f.label :payment_method, "クレジットカード", {value: :true} %>
+      <br><%= f.radio_button :payment_method, :true %>
+      <%= f.label :payment_method, "銀行振込", {value: :true} %>
+        </div>
+      </div>
+      <div class="row">
+  	    <div class="col-xs-1"></div>
+  	    <div class="col-xs-10">
+  	    <strond><h3>お届け先</h3></strond>
+  	    </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2"></div>
+	    <div class="col-xs-8">
+	  <%= f.radio_button :address, :true %>
+      <%= f.label :address, "ご自身の住所", {value: :true} %>
+      <br><%= f.radio_button :address, :true %>
+      <%= f.label :address, "登録済住所から選択", {value: :true} %>
+      <br><%= f.radio_button :address, :true %>
+      <%= f.label :address, "新しいお届け先", {value: :true} %>
+        </div>
+      </div>
+      <% end %>
+  </div>
+</div>

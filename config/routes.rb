@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/orders/check' => 'orders#check'
   get '/customers/:id/exit' => 'customers#exit'
   get '/cart_item' => 'cart_items#destroy_all'
-  resources :orders, only: [:index, :show]
+  resources :orders, only: [:index, :show, :new, :create]
   resources :customers, only: [:show, :edit, :update, :destroy]
   resources :shipping_addresses, only: [:edit, :create, :update, :destroy]
   get '/customers/customers_id/shipping_addresses' => 'shipping_addresses#index'
