@@ -1,2 +1,63 @@
-<h1>Admins::Items#edit</h1>
-<p>Find me in app/views/admins/items/edit.html.erb</p>
+
+<div class="container">
+  <h1>商品編集</h1><br>
+  <div class="row">
+    <div class="col-xs-3">
+      <%= form_for(@item, url: admins_item_path(@item.id)) do |f| %>
+
+      <%= f.attachment_field :image %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3"></div>
+    <div class="col-xs-9">
+      <div class="row">
+      	<div class="col-xs-4">
+      	  <h4>商品名</h4>
+        </div>
+        <div class="col-xs-8">
+          <%= f.text_field :name, size: "30x10" %>
+        </div>
+      </div>
+      <div class="row">
+      	<div class="col-xs-4">
+      		<h4>商品説明</h4>
+      	</div>
+      	<div class="col-xs-8">
+      		<%= f.text_area :description, size: "32x6" %>
+      	</div>
+      </div>
+      <div class="row">
+      	<div class="col-xs-4">
+      		<h4>ジャンル</h4>
+      	</div>
+      	<div class="col-xs-8">
+      	  <%= f.collection_select :genre_id, @genre, :id ,:genre_name, :prompt => "--選択してください--" %>
+      	</div>
+      </div>
+      <div class="row">
+      	<div class="col-xs-4">
+      	  <h4>税抜価格</h4>
+      	</div>
+      	<div class="col-xs-8">
+      	  <%= f.text_field :price, size: "30x10" %>
+      	</div>
+      </div>
+      <div class="row">
+      	<div class="col-xs-4">
+      	  <h4>販売<br>ステータス</h4>
+      	</div>
+      	<div class="col-xs-7">
+      	  <%= f.select :sales_atatus, [["販売中","販売中"], ["売切れ", "売切れ"]], :include_blank =>"--選択してください--" %>
+      	</div>
+      </div>
+      <div class="row">
+      	<div class="col-xs-10"></div>
+      	<div class="col-xs-2">
+      	  <br><%= f.submit "登録", class:"btn btn-info" %>
+      	</div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

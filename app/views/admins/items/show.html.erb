@@ -1,2 +1,52 @@
-<h1>kkkkAdmins::Items#show</h1>
-<p>Find me in app/views/admins/items/show.html.erb</p>
+<h2>商品詳細</h2>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<h2>画像が表示</h2>
+			<%= attachment_image_tag @item, :image_id, :fill, 300,300, format: "jpeg" %>
+		</div>
+		<div class="col-xs-9">
+			<div class="row">
+			  <div class="col-xs-3">
+			    <h4>商品名</h4>
+			  </div>
+			    <div class="col-xs-5">
+			      <span><h4><%= @item.name %></h4></span>
+			    </div>
+		    </div>
+		    <div class="row">
+			  <div class="col-xs-3">
+			    <h4>商品説明</h4>
+			  </div>
+			  <div class="col-xs-5">
+			    <span><h4><%= @item.description %></h4></span>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-xs-3">
+		        <h4>ジャンル</h4>
+		      </div>
+		      <div class="col-xs-5">
+			    <span><h4><%= @item.genre.genre_name %></h4></span>
+			  </div>
+			</div>
+			<div class="row">
+		      <div class="col-xs-5">
+				<h4>税込価格（税抜価格）</h4>
+			  </div>
+			  <div class="col-xs-5">
+			    <span><h4><%= @item.price %></h4></span>
+			  </div>
+		    </div>
+		    <div class="row">
+		      <div class="col-xs-4">
+			    <h4>販売ステータス</h4>
+			  </div>
+			  <div class="col-xs-5">
+			    <span><h4><%= @item.sales_atatus %></h4></span>
+              </div>
+              <div class="col-xs-3">
+			    <%= link_to "編集する", edit_admins_item_path(@item.id), class:"btn btn-info" %>
+			  </div>
+		    </div>
+		</div>
