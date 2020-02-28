@@ -4,6 +4,7 @@ class Admins::ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -18,6 +19,14 @@ class Admins::ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+    @genre = Genre.where(display_status: true)
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to admins_item_path(@item.id)
   end
 
   private
