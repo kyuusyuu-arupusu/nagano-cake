@@ -19,7 +19,7 @@
           </div>
             <ul class="nav navbar-nav navbar-right">
               <% if customer_signed_in? %>
-                <li><%= link_to "マイページ", root_path %></li>
+                <li><%= link_to "マイページ", customers_customer_path(current_customer) %></li>
                 <li><%= link_to "商品一覧", customers_items_path %></li>
                 <li><%=link_to '注文履歴一覧', customers_orders_path %></li>
                 <li class="">

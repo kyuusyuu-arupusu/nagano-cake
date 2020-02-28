@@ -10,10 +10,10 @@ class Customers::ShippingAddressesController < ApplicationController
 
   def create
     # binding.pry
-      @shipping_address = ShippingAddress.new(shipping_address_params)
-      @shipping_address.customer_id = current_customer.id
-      @shipping_address.save
-      redirect_to customers_shipping_addresses_path
+      shipping_address = ShippingAddress.new(shipping_address_params)
+      shipping_address.customer_id = current_customer.id
+      shipping_address.save
+      redirect_to customers_customers_customers_id_shipping_addresses_path
   end
 
   def update
@@ -25,7 +25,7 @@ class Customers::ShippingAddressesController < ApplicationController
   def destroy
       shipping_address = ShippingAddress.find(params[:id])
       shipping_address.destroy
-      redirect_to customers_shipping_addresses_path
+      redirect_to customers_customers_customers_id_shipping_addresses_path
   end
 
   private

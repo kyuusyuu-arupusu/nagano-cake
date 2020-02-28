@@ -14,10 +14,10 @@ Rails.application.routes.draw do
   get '/homes/about' => 'homes#about'
   get '/orders/finish' => 'orders#finish'
   get '/orders/check' => 'orders#check'
-  get '/customers/exit' => 'customers#exit'
+  get '/customers/:id/exit' => 'customers#exit'
   get '/cart_item' => 'cart_items#destroy_all'
   resources :orders, only: [:index, :show]
-  resources :customers, only: [:show, :edit, :update]
+  resources :customers, only: [:show, :edit, :update, :destroy]
   resources :shipping_addresses, only: [:edit, :create, :update, :destroy]
   get '/customers/customers_id/shipping_addresses' => 'shipping_addresses#index'
   resources :cart_items, only: [:index]
