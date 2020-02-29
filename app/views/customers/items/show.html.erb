@@ -1,2 +1,36 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<div class="container">
+  <div class="row">
+  	<div class="col-xs-3">
+  	  <table class="table table-bordered">
+  	  	<thead>
+  	  	  <th>ジャンル検索</th>
+  	  	</thead>
+  	  	<tbody>
+          <% @genres.each do |g| %>
+  	  	    <tr>
+              <td><%= g.id %></td>
+            </tr>
+          <% end %>
+  	  	</tbody>
+  	  </table>
+  	</div>
+  	<div class="col-xs-5">
+  	  <%= attachment_image_tag @item, :image, :fill, 270, 300, format: 'jpeg' %>
+  	</div>
+  	<div class="col-xs-4">
+  	  <h3><%= @item.name %></h3>
+  	  <p><%= @item.description %></p>
+  	  <p><%= @item.price %></p>
+    </div>
+  </div>
+  <div class="row">
+  	<div class="col-xs-4 col-xs-offset-8">
+  	  <%= form_for(@cart_item, url:customers_cart_items_path) do |i| %>
+  	    <%= i.select :quantity, [["1","1"], ["2","2"], ["3","3"], ["4","4"], ["5","5"]], :include_blank =>"--選択してください--" %>
+    	<%= i.hidden_field :item_id, :value => @item.id %>
+
+  	    <%= i.submit "カートに入れる", class:"btn btn-info"  %>
+      <% end %>
+    </div>
+  </div>
+</div>
