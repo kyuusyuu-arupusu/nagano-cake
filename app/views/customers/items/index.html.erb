@@ -1,2 +1,25 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<div class="container">
+  <div class="row">
+  	<div class="col-xs-3">
+  	  <table class="table table-bordered">
+  	  	<thead>
+  	  	  <th>ジャンル検索</th>
+  	  	</thead>
+  	  	<tbody>
+          <% @genres.each do |g| %>
+  	  	    <tr>
+              <td><%= g.id %></td>
+            </tr>
+          <% end %>
+  	  	</tbody>
+  	  </table>
+  	</div>
+  	<div class="col-xs-9">
+  	  <% @items.each do |i| %>
+  	  <div class="col-xs-4">
+  	  	<%= attachment_image_tag i, :image, :fill, 150, 150, format: 'jpeg' %>
+  	  	<P><%= i.name %></P>
+  	  	<p><%= i.price %></p>
+  	  </div>
+  	  <% end %>
+  	</div>
