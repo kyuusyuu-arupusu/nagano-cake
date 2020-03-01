@@ -1,19 +1,2 @@
-              <% if admin_signed_in? %>
-                 <li><%= link_to "商品一覧", admins_items_path %></li>
-                <li><%= link_to "会員一覧", admins_customers_path %></li>
-                <li><%=link_to '注文履歴一覧', admins_orders_path %></li>
-                <li><%=link_to 'ジャンル管理', admins_genres_path %></li>
-
-              <% elsif  customer_signed_in? %>
-              <li><%= link_to "マイページ", root_path %></li>
-                <li><%= link_to "商品一覧", customers_items_path %></li>
-                <li><%=link_to '注文履歴一覧', customers_orders_path %></li>
-                <li class="">
-                  <%=link_to destroy_customer_session_path, method: "delete" do %>ログアウト</li>
-
-              <% else %>
-                <li><%= link_to "Top", root_path %></li>
-                <li><%= link_to "About", customers_homes_about_path %></li></li>
-                <li><%= link_to "新規登録", new_customer_registration_path %></li>
-                <li><%= link_to "ログイン", new_customer_session_path %></li></li>
-             <% end %>
+              
+              
