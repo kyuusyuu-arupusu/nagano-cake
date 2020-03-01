@@ -19,7 +19,7 @@
   	  <div class="col-xs-4">
   	  	<%= attachment_image_tag i, :image, :fill, 150, 150, format: 'jpeg' %>
   	  	<P><%= i.name %></P>
-  	  	<p><%= i.price %></p>
+  	  	<p><span>¥</span><%= i.price %><span>(税込)</span></p>
   	  </div>
   	  <% end %>
   	</div>
