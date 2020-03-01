@@ -11,17 +11,18 @@ Rails.application.routes.draw do
 
 
   namespace :customers do
-  get '/homes/about' => 'homes#about'
-  get '/orders/finish' => 'orders#finish'
-  get '/orders/check' => 'orders#check'
-  get '/customers/:id/exit' => 'customers#exit'
-  get '/cart_item' => 'cart_items#destroy_all'
-  resources :orders, only: [:index, :show]
-  resources :customers, only: [:show, :edit, :update, :destroy]
-  resources :shipping_addresses, only: [:edit, :create, :update, :destroy]
-  get '/customers/customers_id/shipping_addresses' => 'shipping_addresses#index'
-  resources :cart_items, only: [:index, :create]
-  resources :items, only: [:index, :show]
+    get '/homes/about' => 'homes#about'
+    get '/orders/finish' => 'orders#finish'
+    get '/orders/check' => 'orders#check'
+    get '/customers/:id/exit' => 'customers#exit'
+    delete '/cart_items' => 'cart_items#destroy_all'
+    resources :orders, only: [:index, :show]
+    resources :customers, only: [:show, :edit, :update, :destroy]
+    resources :shipping_addresses, only: [:edit, :create, :update, :destroy]
+    get '/customers/customers_id/shipping_addresses' => 'shipping_addresses#index'
+    resources :cart_items, only: [:create, :destroy]
+    get '/customers/customer_id/cart_items' => "cart_items#index"
+    resources :items, only: [:index, :show]
   end
 
   root "customers/homes#top"
