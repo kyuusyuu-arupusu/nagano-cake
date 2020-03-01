@@ -17,21 +17,57 @@
       </div>
       <div class="row">
   	    <div class="col-xs-1"></div>
-  	    <div class="col-xs-10">
+  	    <div class="col-xs-11">
   	    <strond><h3>お届け先</h3></strond>
   	    </div>
       </div>
       <div class="row">
         <div class="col-xs-2"></div>
-	    <div class="col-xs-8">
+	    <div class="col-xs-10">
 	  <%= f.radio_button :address, :true %>
       <%= f.label :address, "ご自身の住所", {value: :true} %>
       <br><%= f.radio_button :address, :true %>
       <%= f.label :address, "登録済住所から選択", {value: :true} %>
+
+      <%= f.collection_select :address, @shipping_address, :id ,:shipping_address_address, :prompt => "--選択してください--" %>
+
       <br><%= f.radio_button :address, :true %>
       <%= f.label :address, "新しいお届け先", {value: :true} %>
         </div>
       </div>
+      <div class="row">
+      	<div class="col-xs-2"></div>
+      	<div class="col-xs-2">
+        <strong><h5>郵便番号</h5></strong>
+        </div>
+        <div class="col-xs-6">
+      <%= f.text_field :post_code, size: "10x10" %>
+        </div>
+      </div>
+      <div class="row">
+      	<div class="col-xs-2"></div>
+      	<div class="col-xs-2">
+        <strong><h5>住所</h5></strong>
+        </div>
+        <div class="col-xs-6">
+          <%= f.text_field :address, size: "50x10"%>
+        </div>
+      </div>
+	   <div class="row">
+	  	<div class="col-xs-2"></div>
+	  	<div class="col-xs-2">
+	    <strong><h5>宛名</h5></strong>
+	    </div>
+	    <div class="col-xs-6">
+	      <%= f.text_field :name, size: "20x10"%>
+	    </div>
+	  </div>
+	   <div class="row">
+	  	<div class="col-xs-2"></div>
+	  	<div class="col-xs-3"></div>
+	  	<div class="col-xs-3">
+	  		<%= f.submit "確認画面へ進む", class:"btn btn-info" %>
+	  	</div>
       <% end %>
   </div>
 </div>
