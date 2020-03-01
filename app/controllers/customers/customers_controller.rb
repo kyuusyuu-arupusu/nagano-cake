@@ -5,11 +5,11 @@ class Customers::CustomersController < ApplicationController
   end
 
   def edit
-     @customer = Customer.find(params[:id])      
+     @customer = Customer.find(params[:id])
   end
 
   def exit
-     @customer = Customer.find(params[:id])  
+     @customer = Customer.find(params[:id])
   end
 
   def update
@@ -22,7 +22,6 @@ class Customers::CustomersController < ApplicationController
       customer = Customer.find(params[:id])
       customer.destroy
       redirect_to root_path
-    
   end
 
   private
