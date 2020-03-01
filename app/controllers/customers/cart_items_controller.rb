@@ -19,7 +19,7 @@ class Customers::CartItemsController < ApplicationController
   def destroy_all
      cart_items = CartItem.where(customer_id: current_customer.id)
      cart_items.destroy_all
-     redirect_to customers_items_path
+     redirect_togi customers_items_path
   end
 
   private
