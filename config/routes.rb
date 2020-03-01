@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get '/orders/finish' => 'orders#finish'
     get '/orders/check' => 'orders#check'
     get '/customers/:id/exit' => 'customers#exit'
-    delete '/cart_items' => 'cart_items#destroy_all'
+    delete '/customers/customer_id/cart_items' => 'cart_items#destroy_all'
     resources :orders, only: [:index, :show, :new, :create]
     resources :customers, only: [:show, :edit, :update, :destroy]
     resources :shipping_addresses, only: [:edit, :create, :update, :destroy]
@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:create, :destroy]
     get '/customers/customer_id/cart_items' => "cart_items#index"
     resources :items, only: [:index, :show]
+  end
 
 
   root "customers/homes#top"
