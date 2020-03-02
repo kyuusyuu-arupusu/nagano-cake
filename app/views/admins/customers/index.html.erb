@@ -15,7 +15,11 @@
  <tbody>
      <tr>
      <th><%= c.id %></th>
-     <th><%= c.last_name %> <%= c.first_name %></th>
+     <th>
+     <%= link_to admins_customer_path(c.id) do %>
+     <%= c.last_name %> <%= c.first_name %>
+     <% end %>
+     </th>
      <th><%= c.email %></th>
      <% if c.is_deleted %>
         <th>退会済み</th>
