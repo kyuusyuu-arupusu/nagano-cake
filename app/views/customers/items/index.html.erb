@@ -16,10 +16,12 @@
   	</div>
   	<div class="col-xs-9">
   	  <% @items.each do |i| %>
-  	  <div class="col-xs-4">
+  	  <div class="col-xs-3">
   	  	<%= attachment_image_tag i, :image, :fill, 150, 150, format: 'jpeg' %>
-        <p><%= link_to i.name, customers_item_path(i.id) %></p>
-  	  	<p><%= i.price %></p>
+
+  	  	<p><%= link_to i.name, customers_item_path(i.id) %></p>
+        <p><span>¥</span><%= i.price %><span>(税込)</span></p>      
+  	  	
   	  </div>
   	  <% end %>
   	</div>

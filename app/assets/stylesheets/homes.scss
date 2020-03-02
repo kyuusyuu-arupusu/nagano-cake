@@ -2,17 +2,99 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Hannotate SC',"Comic Sans MS", sans-serif;
+}
+
+body{
+ width: 100%;
+ background-color: #fcfcfc;
+ background-image: radial-gradient(#eee 10%, transparent 20%), radial-gradient(#eee 10%, transparent 20%);
+ background-position: 0 0, 10px 10px;
+ background-size: 20px 20px;
+}
+
+
+/*genre-list*/
+.genres-nav-ul{
+	text-align: center;
+	
+}
+
 li{
-	list-style:none;
-	float:right;
+	list-style: none;
+	float: right;
 	margin-right:20px;
+	
+}
+
+.picture{
+	background-image: url("top/cupcake.jpg");
+	background-size: cover;
+	height: 700px;
+	background-position: center;
+	margin-bottom: 40px;
 
 }
 
-.order-count{
-	font-size: 20px;
+
+
+/*main*/
+
+.item-title2{
+	font-size: 50px;
+	
+	text-align: center;
+	position: relative;
+	top: 130px;
 }
 
-.admin-title{
+
+.item-index-top{
+	background-image: url("top/cakes1.jpg");
+	background-size: cover;
+	height: 500px;
+	width: 100%;
+	position: absolute;
+}
+.item-index-table{
+	text-align: center;
+	width: 1000px;
+	margin-left: 300px;
+}
+
+.index-item-ul{
+	color: #000000;
+	
+}
+
+.index-item{
+	float: left;
+	width: 400px;
+	list-style: none;
 	margin-bottom: 50px;
+	margin-right: 40px;
 }
+
+.index-item:nth-child(1){
+	margin-top: 600px; 
+}
+.index-item:nth-child(3){
+	margin-top: 600px; 
+}
+
+.index-item:nth-child(4){
+	margin-top: 600px; 
+}
+
+.item-name{
+	font-size: 30px;
+}
+
+.index-item p{
+	text-align: center;
+}
+}
+

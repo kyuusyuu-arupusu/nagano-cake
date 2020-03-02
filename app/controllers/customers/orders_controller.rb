@@ -51,3 +51,4 @@ class Customers::OrdersController < ApplicationController
     params.require(:order).permit(:payment_method, :address, :post_code,:name, :total_price)
   end
 end
+ 

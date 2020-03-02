@@ -7,9 +7,10 @@
   	  退会する場合は、「退会する」をクリックしください。
   	  </p>
       <%= link_to "退会しない", customers_customer_path(@customer.id),class:"btn btn-info" %>
-      <%= link_to "退会する", customers_customer_path, method: :delete, "data-confirm" => "本当に削除しますか?", class: "btn btn-danger" %> 
+      <%= link_to "退会する", customers_customer_path(@customer.id), method: :delete, "data-confirm" => "本当に削除しますか?", class: "btn btn-danger" %> 
     </div>
   </div>
 </div>
 
 
+ 
