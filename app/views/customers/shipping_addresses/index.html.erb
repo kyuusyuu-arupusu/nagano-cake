@@ -1,25 +1,32 @@
 <div class="container">
   <h3>配送先登録/一覧</h3>
   <div class="row">
-  	<div class="col-xs-8">
-  	  <%= form_for(@shipping_address, url:customers_shipping_addresses_path) do |s| %>
-	  	  <table class="table table-bordered">
-	  	  	<tr>
-	  	  	  <td>郵便番号</td>
-	  	  	  <td><%= s.text_field :post_code %></td>
-	  	  	</tr>
-	  	  	<tr>
-	  	  	  <td>住所</td>
-	  	  	  <td><%= s.text_field :address %></td>
-	  	  	</tr>
-	  	  	<tr>
-	  	  	  <td>宛名</td>
-	  	  	  <td><%= s.text_field :name %></td>
-	  	  	</tr>
-	  	  </table>
-	  	  <%= s.submit '登録する', class:"btn btn-info" %>
-  	  <% end %>
+  	<%= form_for(@shipping_address, url:customers_shipping_addresses_path) do |s| %>
+  	<div class="col-xs-8">  	  
+  	  <table class="table table-bordered">
+  	  	<tr>
+  	  	  <td>郵便番号</td>
+  	  	  <td><%= s.text_field :post_code %></td>
+  	  	</tr>
+  	  	<tr>
+  	  	  <td>住所</td>
+  	  	  <td><%= s.text_field :address, size: "50x20" %></td>
+  	  	</tr>
+  	  	<tr>
+  	  	  <td>宛名</td>
+  	  	  <td><%= s.text_field :name %></td>
+  	  	</tr>
+  	  </table>	  	   	  
   	</div>
+  	<div class="col-xs-2"></div>
+
+  	<div class="row">
+  		<div class="col-xs-8"></div>
+  		<div class="col-xs-2">
+  	      <%= s.submit '登録する', class:"btn btn-info" %>
+  	    </div>
+  	</div>
+  	<% end %>
   	<div class="col-xs-7">
       <table class="table table-bordered">
       	<thead>

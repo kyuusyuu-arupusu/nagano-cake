@@ -29,3 +29,4 @@ class Customers::OrdersController < ApplicationController
     paramd.require(:order).permit(:payment_method, :address, :post_code,:name)
   end
 end
+ 
