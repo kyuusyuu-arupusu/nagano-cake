@@ -1,27 +1,26 @@
 
+<div class="body">
 <div class="container">
 <div class="row">
-  <div class="col-xs-2"></div>
-  <div class="col-xs-8">
+  <div class="col-md-4 col-md-offset-4">
 <p>会員の方はこちらからログイン</p>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :メールアドレス %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :パスワード%>
-    <%= f.password_field :password, autocomplete: "current-password" %><br>
+    <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %><br>
   </div>
   <div class="actions">
-    <%= f.submit "ログイン", class: "btn btn-primary" %>
+    <%= f.submit "ログイン", class: "btn btn-primary form-control" %>
   </div>
+  <%= render "customers/shared/links" %>
 <% end %>
+</div>
+</div>
 
-<%= render "customers/shared/links" %>
-</div>
-<div class="col-xs-2"></div>
-</div>
 </div>

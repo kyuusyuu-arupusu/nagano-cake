@@ -26,10 +26,16 @@
 	    <div class="col-xs-10">
 	  <%= f.radio_button :address, :true %>
       <%= f.label :address, "ご自身の住所", {value: :true} %>
+      <br><%= @customer.post_code %>
+      <%= @customer.address %>
+      <%= @customer.last_name %>
+      <%= @customer.first_name %>
+
       <br><%= f.radio_button :address, :true %>
       <%= f.label :address, "登録済住所から選択", {value: :true} %>
 
-      <%= f.collection_select :address, @shipping_address, :id ,:address, :prompt => "--選択してください--" %>
+      <br><%= f.collection_select :address, @shipping_address, :id ,:view_post_code_and_address_and_name, :prompt => "--選択してください--" %>
+
 
       <br><%= f.radio_button :address, :true %>
       <%= f.label :address, "新しいお届け先", {value: :true} %>

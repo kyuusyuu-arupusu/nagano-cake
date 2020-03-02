@@ -14,21 +14,30 @@
 <div class="container">
   <img src="#" class="img-top">
 </div>
-
-<div class="container">
-  <div class="row">
-  	<div class="col-xs-4"></div>
-  	<div class="col-xs-4">
-  	  <h2>商品一覧</h2>
-  	</div>
-  	<div class="col-xs-4"></div>
-  </div>
+<div class="item-index-table">
+<table class="index-item-ul">
+<% @items.each do |i| %>
+	<% if customer_signed_in? %>
+	<li class="index-item">
+	<%= link_to customers_item_path(i.id) do %>
+	<%= attachment_image_tag i, :image, :fill, 300, 300, format: "jpeg", class: "img-circle pull-left profile-img", fallback: "top/no_image.jpg", size: "400x400" %>
+	<p class="item-name"><%= i.name %></p>
+	<% end %>
+	<p class="item-description"><%= i.description %></p>
+	</li>
+	<% else %>
+	<li class="index-item">
+	<%= attachment_image_tag i, :image, :fill, 300, 300, format: "jpeg", class: "img-circle pull-left profile-img", fallback: "top/no_image.jpg", size: "400x400" %>
+	<p class="item-name"><%= i.name %></p>
+	<p class="item-description"><%= i.description %></p>
+	</li>
+	<% end %>
+<table>
 </div>
-
-<div class="container">
-  <div calss="row">
-  	<div class="col-xs-6"></div>
-  	<div class="col-xs-6"></div>
-  </div>
+<% end %>
+<ul>
+<!-- footer -->
+<footer class="box d">
+>>>>>>> Stashed changes
 </div>
 
