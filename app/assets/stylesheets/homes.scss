@@ -24,10 +24,10 @@ body{
 }
 
 li{
-	list-style:none;
-	float:right;
+	list-style: none;
+	float: right;
 	margin-right:20px;
-
+	
 }
 
 .picture{
@@ -40,8 +40,15 @@ li{
 }
 
 
-.order-count{
-	font-size: 20px;
+
+/*main*/
+
+.item-title2{
+	font-size: 50px;
+	
+	text-align: center;
+	position: relative;
+	top: 130px;
 }
 
 
@@ -89,3 +96,5 @@ li{
 .index-item p{
 	text-align: center;
 }
+}
+
