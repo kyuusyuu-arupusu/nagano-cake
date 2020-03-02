@@ -2,8 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-<<<<<<< Updated upstream
-=======
 *{
 	margin: 0;
 	padding: 0;
@@ -25,23 +23,34 @@ body{
 	
 }
 
->>>>>>> Stashed changes
 li{
-	list-style:none;
-	float:right;
+	list-style: none;
+	float: right;
 	margin-right:20px;
+	
+}
+
+.picture{
+	background-image: url("top/cupcake.jpg");
+	background-size: cover;
+	height: 700px;
+	background-position: center;
+	margin-bottom: 40px;
 
 }
 
-.order-count{
-	font-size: 20px;
+
+
+/*main*/
+
+.item-title2{
+	font-size: 50px;
+	
+	text-align: center;
+	position: relative;
+	top: 130px;
 }
 
-<<<<<<< Updated upstream
-.admin-title{
-	margin-bottom: 50px;
-}
-=======
 .item-index-top{
 	background-image: url("top/cakes1.jpg");
 	background-size: cover;
@@ -86,4 +95,3 @@ li{
 .index-item p{
 	text-align: center;
 }
->>>>>>> Stashed changes
