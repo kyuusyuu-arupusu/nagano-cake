@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:show, :edit, :update, :destroy]
     resources :shipping_addresses, only: [:edit, :create, :update, :destroy]
     get '/customers/customers_id/shipping_addresses' => 'shipping_addresses#index'
-    resources :cart_items, only: [:create, :destroy]
+    resources :cart_items, only: [:create, :update, :destroy]
     get '/customers/customer_id/cart_items' => "cart_items#index"
     resources :items, only: [:index, :show]
   end
