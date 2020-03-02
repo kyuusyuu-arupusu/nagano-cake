@@ -6,4 +6,11 @@ class Customers::HomesController < ApplicationController
   def about
   end
 
+  def show
+ 
+  end
+
+  private
+
+
 end
