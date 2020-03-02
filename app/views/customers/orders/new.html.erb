@@ -33,7 +33,9 @@
 
       <br><%= f.radio_button :address, :true %>
       <%= f.label :address, "登録済住所から選択", {value: :true} %>
+
       <br><%= f.collection_select :address, @shipping_address, :id ,:view_post_code_and_address_and_name, :prompt => "--選択してください--" %>
+
 
       <br><%= f.radio_button :address, :true %>
       <%= f.label :address, "新しいお届け先", {value: :true} %>

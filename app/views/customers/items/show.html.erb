@@ -10,7 +10,7 @@
   	  	    <tr>
               <td><%= g.genre_name %></td>
             </tr>
-          <% end %>
+          <% end %> 
   	  	</tbody>
   	  </table>
   	</div>
@@ -29,7 +29,7 @@
   	    <%= i.select :quantity, [["1","1"], ["2","2"], ["3","3"], ["4","4"], ["5","5"]], :include_blank =>"--選択してください--" %>
     	<%= i.hidden_field :item_id, :value => @item.id %>
 
-  	    <%= i.submit "カートに入れる", class:"btn btn-info"  %>
+  	    <%= i.submit "カートに入れる", class:"btn btn-info" %>
       <% end %>
     </div>
   </div>
