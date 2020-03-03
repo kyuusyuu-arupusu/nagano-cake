@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-  	<div class="col-xs-3">
+  	<div class="col-md-3">
   	  <table class="table table-bordered">
   	  	<thead>
   	  	  <th>ジャンル検索</th>
@@ -14,9 +14,10 @@
   	  	</tbody>
   	  </table>
   	</div>
-  	<div class="col-xs-9">
+  	<div class="col-md-9">
+      <h2>商品一覧(前件)</h2>
   	  <% @items.each do |i| %>
-  	  <div class="col-xs-3">
+  	  <div class="col-md-3">
   	  	<%= attachment_image_tag i, :image, :fill, 150, 150, format: 'jpeg' %>
 
   	  	<p><%= link_to i.name, customers_item_path(i.id) %></p>
@@ -24,3 +25,5 @@
   	  </div>
   	  <% end %>
   	</div>
+  </div>
+</div>
