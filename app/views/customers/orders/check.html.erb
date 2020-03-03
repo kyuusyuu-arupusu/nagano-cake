@@ -7,14 +7,13 @@
 	</div>
 
 	<div class="row">
-        <div class="col-xs-1"></div>
-		<div class="col-xs-7">
-		    <table border="1">
-		    	<tr>
-		    		<th class="col-xs-5">商品名</th>
-		    		<th class="col-xs-3">単価（税込）</th>
-		    		<th class="col-xs-2">数量</th>
-		    		<th class="col-xs-2">小計</th>
+		<div class="col-xs-6 col-xs-offset-1">
+		    <table class="table table-bordered">
+		    	<tr class="active">
+		    		<th>商品名</th>
+		    		<th>単価（税込）</th>
+		    		<th>数量</th>
+		    		<th>小計</th>
 		    	</tr>
 		    	<% @sum = 0 %>
 		    	<% @cart_items.each do |cart_item| %>
@@ -24,13 +23,14 @@
 		    		<td><%= cart_item.quantity %></td>
 		    		<td><%= cart_item.item.price * cart_item.quantity  %></td>
 		    	</tr>
+		    	<% @sum += cart_item.item.price * cart_item.quantity %>
+		<% end %>
 		    </table>
 		</div>
-		<% @sum += cart_item.item.price * cart_item.quantity %>
-		<% end %>
-		<div class="col-xs-4">
-		    <table border="1">
-		    	<tr>
+		
+		<div class="col-xs-3">
+		    <table class="table table-bordered">
+		    	<tr  class="active">
 		    		<th class="col-xs-6">送料</th>
 		    		<td class="col-xs-6"><%= 800 %></td>
 		    	</tr>
@@ -73,7 +73,7 @@
 		<%= f.hidden_field :name, :value => @name %>
 		<%= f.hidden_field :total_price, :value => @sum %>
 
-		<%= f. submit "注文を確定する" %>
+		<%= f. submit "注文を確定する",class:"btn btn-info" %>
 
 		<% end %>
 	</div>
