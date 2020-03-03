@@ -1,2 +1,80 @@
-<h1>Orders#check</h1>
-<p>Find me in app/views/orders/check.html.erb</p>
+<div class="conteiner">
+	<div class="row">
+        <div class="col-xs-1"></div>
+		<div class="col-xs-7">
+			<h2>注文情報確認</h2>
+		</div>
+	</div>
+
+	<div class="row">
+        <div class="col-xs-1"></div>
+		<div class="col-xs-7">
+		    <table border="1">
+		    	<tr>
+		    		<th class="col-xs-5">商品名</th>
+		    		<th class="col-xs-3">単価（税込）</th>
+		    		<th class="col-xs-2">数量</th>
+		    		<th class="col-xs-2">小計</th>
+		    	</tr>
+		    	<% @sum = 0 %>
+		    	<% @cart_items.each do |cart_item| %>
+		    	<tr>
+		    		<td><%= attachment_image_tag cart_item.item, :image, :fill, 20,20, format: "jpeg" %><%= cart_item.item.name %></td>
+		    		<td><%= cart_item.item.price %></td>
+		    		<td><%= cart_item.quantity %></td>
+		    		<td><%= cart_item.item.price * cart_item.quantity  %></td>
+		    	</tr>
+		    </table>
+		</div>
+		<% @sum += cart_item.item.price * cart_item.quantity %>
+		<% end %>
+		<div class="col-xs-4">
+		    <table border="1">
+		    	<tr>
+		    		<th class="col-xs-6">送料</th>
+		    		<td class="col-xs-6"><%= 800 %></td>
+		    	</tr>
+		    	<tr>
+		    		<th class="col-xs-6">商品合計</th>
+		    		<td class="col-xs-6"><%= @sum %></td>
+		    	</tr>
+		    	<tr>
+		    		<th class="col-xs-6">請求金額</th>
+		    		<td class="col-xs-6"><%= @sum + 800 %></td>
+		    	</tr>
+		    </table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-1">
+			支払い方法
+		</div>
+		<div class="col-xs-3">
+			<%= @payment_method %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-1">
+			お届け先
+		</div>
+		<div class="col-xs-4">
+			<%= @post_code %>
+			<%= @address %>
+			<%= @name %>
+			<%= @last_name %>
+			<%= @first_name %>
+		</div>
+		<%= form_for(@order, url:customers_orders_path) do |f| %>
+		<%= f.hidden_field :payment_method, :value => @payment_method %>
+		<%= f.hidden_field :address, :value => @address %>
+		<%= f.hidden_field :post_code, :value => @post_code %>
+		<%= f.hidden_field :name, :value => @name %>
+		<%= f.hidden_field :total_price, :value => @sum %>
+
+		<%= f. submit "注文を確定する" %>
+
+		<% end %>
+	</div>
+</div>

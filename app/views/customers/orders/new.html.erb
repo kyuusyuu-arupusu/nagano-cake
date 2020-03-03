@@ -1,20 +1,23 @@
+
 <div class="conteiner">
   <div class="row">
   	<div class="col-xs-1"></div>
     <div class="col-xs-10">
 	  <h2>購入情報入力</h2>
-	  <%= form_with(model:@order, url:customers_orders_path, local: true) do |f| %>
+	  <%= form_with(model:@order, url:customers_orders_check_path, local: true) do |f| %>
 	   <strond><h3>支払方法</h3></strond>
 	</div>
 	<div class="row">
 	  <div class="col-xs-2"></div>
 	    <div class="col-xs-8">
-	  <%= f.radio_button :payment_method, :true %>
-      <%= f.label :payment_method, "クレジットカード", {value: :true} %>
-      <br><%= f.radio_button :payment_method, :true %>
-      <%= f.label :payment_method, "銀行振込", {value: :true} %>
+	  <%= f.radio_button :payment_method, :クレジットカード %>
+      <%= f.label :payment_method, "クレジットカード", {value: :クレジットカード} %>
+      <br><%= f.radio_button :payment_method, :銀行振込 %>
+      <%= f.label :payment_method, "銀行振込", {value: :銀行振込} %>
         </div>
       </div>
+
+
       <div class="row">
   	    <div class="col-xs-1"></div>
   	    <div class="col-xs-11">
@@ -24,20 +27,18 @@
       <div class="row">
         <div class="col-xs-2"></div>
 	    <div class="col-xs-10">
-	  <%= f.radio_button :address, :true %>
+	  <%= f.radio_button :address, 1 %>
       <%= f.label :address, "ご自身の住所", {value: :true} %>
       <br><%= @customer.post_code %>
       <%= @customer.address %>
       <%= @customer.last_name %>
       <%= @customer.first_name %>
 
-      <br><%= f.radio_button :address, :true %>
+      <br><%= f.radio_button :address, 2 %>
       <%= f.label :address, "登録済住所から選択", {value: :true} %>
+      <br><%= f.collection_select :address_id, @shipping_address, :id ,:view_post_code_and_address_and_name, :prompt => "--選択してください--" %>
 
-      <br><%= f.collection_select :address, @shipping_address, :id ,:view_post_code_and_address_and_name, :prompt => "--選択してください--" %>
-
-
-      <br><%= f.radio_button :address, :true %>
+      <br><%= f.radio_button :address, 3 %>
       <%= f.label :address, "新しいお届け先", {value: :true} %>
         </div>
       </div>
@@ -47,7 +48,7 @@
         <strong><h5>郵便番号</h5></strong>
         </div>
         <div class="col-xs-6">
-      <%= f.text_field :post_code, size: "10x10" %>
+      <%= f.text_field :new_post_code, size: "10x10" %>
         </div>
       </div>
       <div class="row">
@@ -56,7 +57,7 @@
         <strong><h5>住所</h5></strong>
         </div>
         <div class="col-xs-6">
-          <%= f.text_field :address, size: "50x10"%>
+          <%= f.text_field :new_address, size: "50x10"%>
         </div>
       </div>
 	   <div class="row">
@@ -65,7 +66,7 @@
 	    <strong><h5>宛名</h5></strong>
 	    </div>
 	    <div class="col-xs-6">
-	      <%= f.text_field :name, size: "20x10"%>
+	      <%= f.text_field :new_name, size: "20x10"%>
 	    </div>
 	  </div>
 	   <div class="row">
@@ -76,4 +77,5 @@
 	  	</div>
       <% end %>
   </div>
+
 </div>
