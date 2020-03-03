@@ -6,7 +6,9 @@ class Customers::OrdersController < ApplicationController
     end
 
   def index
+    @order_details = OrderDetail.all
   end
+
 
   def show
     @order = Order.find(params[:id])
