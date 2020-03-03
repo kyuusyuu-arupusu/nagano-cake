@@ -9,7 +9,10 @@ class Customers::OrdersController < ApplicationController
     @order_details = OrderDetail.all
   end
 
-  def show 
+
+  def show
+    @order = Order.find(params[:id])
+    @order_detail = @order.order_details
   end
 
   def finish
@@ -35,14 +38,25 @@ class Customers::OrdersController < ApplicationController
       @post_code = params[:order][:new_post_code]
       @name = params[:order][:new_name]
     end
+    # redirect_to customers_orders_check_path
   end
 
   def create
-    binding.pry
+    # binding.pry
+    cart_items = current_customer.cart_items
     order = Order.new(order_params)
     order.customer_id = current_customer.id
     # binding.pry
     order.save
+    cart_items.each do |cart_item|
+    order_detail= OrderDetail.new
+    order_detail.item_id = cart_item.item_id
+    order_detail.quantity = cart_item.quantity
+    order_detail.price = cart_item.item.price
+    order_detail.order_id = order.id
+    order_detail.save
+    end
+    cart_items.destroy_all
     redirect_to customers_orders_finish_path
   end
 
