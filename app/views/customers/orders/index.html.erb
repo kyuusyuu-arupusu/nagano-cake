@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-  	<div class="col-xs-2">
+  	<div class="col-md-3">
   	  <h3>注文履歴一覧</h3>
   	</div>
   </div>
   <div class="row">
-  	<div class="col-xs-12">
+  	<div class="col-md-12">
   	  <table class="table table-bordered">
   	    <thead>
 	      <tr>
@@ -18,14 +18,16 @@
 	      </tr>
   	    </thead>
         <tbody>
+          <% @order_details.each do |order_detail| %>
           <tr>
-          	<td>2019</td>
-          	<td>haiou</td>
-          	<td>koko</td>
-          	<td>pkoko</td>
-          	<td>okoko</td>
-          	<td><%= link_to "表示する", "#", class: "btn btn-info" %></td>
+          	<td><%= order_detail.create_at %></td>
+          	<td><%= order_detail.order.address %></td>
+          	<td><%= order_detail.item_id.name %></td>
+          	<td><%= order_detail.price %></td>
+          	<td><%= order_detail.order_status %></td>
+          	<td><%= link_to "表示する", customers_order_path(order_detail), class: "btn btn-info" %></td>
           </tr>
+          <% end %>
   	    </tbody>
   	  </table>
   	</div>
