@@ -2,11 +2,9 @@
 <div class="container">
   <div class="row">
   	<ul>
-  	  <!-- ここの表示はジャンルを登録したら番号にする。リンクも設定する -->
-  	  <li>ケーキ</li> 
-  	  <li>プリン</li>
-  	  <li>焼き菓子</li>
-  	  <li>キャンディ</li>
+  	  <% @genres.each do |g| %>
+  	    <li><%= link_to g.genre_name, customers_items_path(genre: g.id) %></li>
+  	  <% end %>
   	</ul>
   </div>
 </div>
