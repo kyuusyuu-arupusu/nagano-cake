@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   namespace :customers do
     get '/homes/about' => 'homes#about'
     get '/orders/finish' => 'orders#finish'
-    get '/orders/check' => 'orders#check'
+    post '/orders/check' => 'orders#check'
     get '/customers/:id/exit' => 'customers#exit'
     delete '/customers/customer_id/cart_items' => 'cart_items#destroy_all'
     resources :orders, only: [:index, :show, :new, :create]
