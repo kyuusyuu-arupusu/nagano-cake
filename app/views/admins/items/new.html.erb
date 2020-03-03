@@ -1,63 +1,42 @@
-
 <div class="container">
-  <h1>商品　新規登録</h1><br>
   <div class="row">
-    <div class="col-xs-3">
-      <%= form_for(@item, url:admins_items_path(@item.id)) do |f| %>
-      <%= attachment_image_tag @item, :image, :fill, 200,200, format: "jpeg" %>
-      <%= f.attachment_field :image %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-3"></div>
-    <div class="col-xs-9">
-      <div class="row">
-      	<div class="col-xs-4">
-      	  <h4>商品名</h4>
-        </div>
-        <div class="col-xs-8">
-          <%= f.text_field :name, size: "30x10" %>
-        </div>
-      </div>
-      <div class="row">
-      	<div class="col-xs-4">
-      		<h4>商品説明</h4>
-      	</div>
-      	<div class="col-xs-8">
-      		<%= f.text_area :description, size: "32x6" %>
-      	</div>
-      </div>
-      <div class="row">
-      	<div class="col-xs-4">
-      		<h4>ジャンル</h4>
-      	</div>
-      	<div class="col-xs-8">
-      	  <%= f.collection_select :genre_id, @genre, :id ,:genre_name, :prompt => "--選択してください--" %>
-      	</div>
-      </div>
-      <div class="row">
-      	<div class="col-xs-4">
-      	  <h4>税込価格</h4>
-      	</div>
-      	<div class="col-xs-8">
-      	  <%= f.text_field :price, size: "30x10" %>
-      	</div>
-      </div>
-      <div class="row">
-      	<div class="col-xs-4">
-      	  <h4>販売<br>ステータス</h4>
-      	</div>
-      	<div class="col-xs-7">
-      	  <%= f.select :sales_atatus, [["販売中","販売中"], ["売切れ", "売切れ"]], :include_blank =>"--選択してください--" %>
-      	</div>
-      </div>
-      <div class="row">
-      	<div class="col-xs-10"></div>
-      	<div class="col-xs-2">
-      	  <br><%= f.submit "登録", class:"btn btn-info" %>
-      	</div>
-      </div>
-      <% end %>
+	<div class="col-xs-4">
+  <h1>商品　新規登録</h1>
+  <%= form_for(@item, url:admins_items_path(@item.id)) do |f| %>
+    <%= attachment_image_tag @item, :image, :fill, 200,200, format: "jpeg" %>
+    <%= f.attachment_field :image %>
+	  <% end %>
+	</div>
+	<div class="col-xs-8">
+	<%= form_for(@item, url:admins_items_path) do |f| %>
+		<tbody>
+		  <th>
+			<tr>
+			  <td>
+			  　　<h4>商品名</h4>
+			  　　<%= f.text_field :name, size: "30x10" %>
+			  </td>
+			  <td>
+			  　　<h4>商品説明</h4>
+			  　　<%= f.text_area :description, size: "32x6" %>
+			  </td>
+			  <td>
+			  　　<h4>ジャンル</h4>
+			  　　<%= f.collection_select :genre_id, @genre, :id ,:genre_name, :prompt => "--選択してください--" %>
+			  </td>
+			  <td>
+			  <h4>税抜価格</h4>
+			  <%= f.text_field :price, size: "30x10" %>
+			  </td>
+			  <td>
+			  <h4>販売ステータス</h4>
+        <%= f.select :sales_atatus, [["販売中","販売中"], ["売切れ", "売切れ"]], :include_blank =>"--選択してください--" %>
+			  </td><br>
+			  <%= f.submit "登録", class:"touroku-action btn btn-info" %>
+			</tr>
+		  </th>
+		</tbody>
+	<% end %>
     </div>
   </div>
 </div>

@@ -15,12 +15,16 @@
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
+          <% if admin_signed_in? %>
+          <%= link_to "ながのCAKE", admins_top_path, class: "navbar-brand" %>
+          <% else %>
             <%= link_to "ながのCAKE", root_path, class: "navbar-brand" %>
+          <% end %>
           </div>
             <ul class="nav navbar-nav navbar-right">
 
               <% if admin_signed_in? %>
-                 <li><%= link_to "商品一覧", admins_items_path %></li>
+                <li><%= link_to "商品一覧", admins_items_path %></li>
                 <li><%= link_to "会員一覧", admins_customers_path %></li>
                 <li><%=link_to '注文履歴一覧', admins_orders_path %></li>
                 <li><%=link_to 'ジャンル管理', admins_genres_path %></li>
@@ -39,8 +43,8 @@
                <% else %>
                 <li><%= link_to "Top", root_path %></li>
                 <li><%= link_to "About", customers_homes_about_path %></li></li>
-                <li><%= link_to "新規登録", new_customer_registration_path %></li>
-                <li><%= link_to "ログイン", new_customer_session_path %></li>
+                <li><%= link_to "SignUp", new_customer_registration_path %></li>
+                <li><%= link_to "LogIn", new_customer_session_path %></li>
                <% end %>
             </ul>
         </div>
