@@ -1,11 +1,15 @@
 class Customers::ShippingAddressesController < ApplicationController
+  
   def index
-      @shipping_addresses = ShippingAddress.all
       @shipping_address = ShippingAddress.new
+      @shipping_addresses = ShippingAddress.where(customer_id: current_customer.id)
   end
 
   def edit
       @shipping_address = ShippingAddress.find(params[:id])
+      if current_customer.id != @shipping_address.customer.id
+      redirect_to root_path
+      end
   end
 
   def create
