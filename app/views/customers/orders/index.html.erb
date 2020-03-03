@@ -20,11 +20,11 @@
         <tbody>
           <% @order_details.each do |order_detail| %>
           <tr>
-          	<td><%= order_detail.create_at %></td>
+          	<td><%= order_detail.created_at %></td>
           	<td><%= order_detail.order.address %></td>
-          	<td><%= order_detail.item_id.name %></td>
+          	<td><%= order_detail.item.name %></td>
           	<td><%= order_detail.price %></td>
-          	<td><%= order_detail.order_status %></td>
+          	<td><%= order_detail.production_status %></td>
           	<td><%= link_to "表示する", customers_order_path(order_detail), class: "btn btn-info" %></td>
           </tr>
           <% end %>
