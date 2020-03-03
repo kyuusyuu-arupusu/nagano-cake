@@ -1,15 +1,25 @@
 class Customers::CustomersController < ApplicationController
+  before_action :authenticate_customer!
   def show
      @customer = Customer.find(params[:id])
-     @shipping_addresses = ShippingAddress.all
+     @shipping_addresses = ShippingAddress.where(customer_id: current_customer.id)
+     if current_customer.id != @customer.id
+     redirect_to root_path
+     end
   end
 
   def edit
      @customer = Customer.find(params[:id])
+     if current_customer.id != @customer.id
+     redirect_to root_path
+     end
   end
 
   def exit
      @customer = Customer.find(params[:id])
+     if current_customer.id != @customer.id
+     redirect_to root_path
+     end
   end
 
   def update
