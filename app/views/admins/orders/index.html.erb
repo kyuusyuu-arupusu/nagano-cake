@@ -19,11 +19,7 @@
           <th><%= order.customer.last_name %> <%= order.customer.first_name %></th>
           
             <th>
-              <% a=0 %>
-              <% order.order_details.each do |o| %>
-              <% a+= o.quantity %>
-              <% end %>
-              <%= a %>
+              <%= order.order_details.sum(:quantity) %>
               </th>
           <th><%= order.order_status %></th>
           </tr>
