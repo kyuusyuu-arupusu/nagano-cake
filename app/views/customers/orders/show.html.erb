@@ -4,9 +4,10 @@
   	  <p>注文情報</p>
   	  <table class="table table-bordered">
 	    <tbody>
-	  	  <tr>
-	  	    <td class="active">注文日</td>
-	  	    <td><%= @order.created_at %></td>
+	  	  <tr class="active">
+	  	    <td>注文日</td>
+	  	    <td><%= @order.created_at.to_s(:datetime_jp) %></td>
+
 	  	  </tr>
 	  	  <tr>
 	  	    <td class="active">配送先</td>
