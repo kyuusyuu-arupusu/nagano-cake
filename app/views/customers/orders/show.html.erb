@@ -2,14 +2,14 @@
   <div class="row">
   	<div class="col-xs-7">
   	  <p>注文情報</p>
-  	  <table class="table tabele-bordered">
+  	  <table class="table table-bordered">
 	    <tbody>
 	  	  <tr>
-	  	    <td>注文日</td>
+	  	    <td class="active">注文日</td>
 	  	    <td><%= @order.created_at %></td>
 	  	  </tr>
 	  	  <tr>
-	  	    <td>配送先</td>
+	  	    <td class="active">配送先</td>
 	  	    <td>
             <%= @order.post_code %>
             <%= @order.address %>
@@ -17,11 +17,11 @@
             </td>
 	  	  </tr>
 	  	  <tr>
-	  	    <td>支払い方法</td>
+	  	    <td class="active">支払い方法</td>
 	  	    <td><%= @order.payment_method %></td>
-	  	  </tr>
+	  	  </tr> 
 	  	  <tr>
-	  	    <td>ステータス</td>
+	  	    <td class="active">ステータス</td>
 	  	    <td><%= @order.order_status %></td>
 	  	  </tr>
 	  	</tbody>
@@ -32,16 +32,16 @@
   	  <table class="table table-bordered">
         <tbody>
   	      <tr>
-  	        <td>商品合計</td>
-  	        <td><%= @order.total_price %></td>
+  	        <td class="active">商品合計</td>
+  	        <td><%= @order.total_price %>円</td>
   	      </tr>
   	      <tr>
-  	        <td>配送料</td>
-  	        <td><%= @order.postage %></td>
+  	        <td class="active">配送料</td>
+  	        <td><%= @order.postage %>円</td>
   	      </tr>
   	      <tr>
-  	        <td>ご請求額</td>
-  	        <td><%= @order.total_price + @order.postage %></td>
+  	        <td class="active">ご請求額</td>
+  	        <td><%= @order.total_price + @order.postage %>円</td>
   	      </tr>
   	    </tbody>
   	  </table>
@@ -53,19 +53,19 @@
       <table class="table table-bordered">
         <thead>
         	<tr>
-        	  <th>商品</th>
-        	  <th>単価（税込）</th>
-        	  <th>個数</th>
-        	  <th>小計</th>
+        	  <th class="active">商品</th>
+        	  <th class="active">単価（税込）</th>
+        	  <th class="active">個数</th>
+        	  <th class="active">小計</th>
         	</tr>
         </thead>
         <tbody>
           <% @order_detail.each do |order_detail| %>
          <tr>
          	<td><%= order_detail.item.name %></td>
-         	<td><%= order_detail.price %></td>
-         	<td><%= order_detail.quantity %></td>
-          <td><%= order_detail.price * order_detail.quantity %></td>
+         	<td><%= order_detail.price %>円</td>
+         	<td><%= order_detail.quantity %>個</td>
+          <td><%= order_detail.price * order_detail.quantity %>円</td>
          </tr>
          <% end %>
         </tbody>
