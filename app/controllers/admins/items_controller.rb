@@ -16,7 +16,6 @@ class Admins::ItemsController < ApplicationController
   	@item = Item.new(item_params)
   	@item.save
     redirect_to admins_item_path(@item.id)
-    
   end
 
   def edit

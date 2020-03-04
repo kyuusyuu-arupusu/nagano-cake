@@ -20,11 +20,11 @@
         <tbody>
           <% @orders.each do |order| %>
           <tr>
-          	<td><%= order.created_at %></td>
+          	<td><%= order.created_at.to_s(:datetime_jp) %></td>
           	<td>
               <%= order.post_code %>
               <%= order.address %>
-              <%= order.customer.last_name %>               
+              <%= order.customer.last_name %>
               <%= order.customer.first_name %>
             </td>
           	<td>

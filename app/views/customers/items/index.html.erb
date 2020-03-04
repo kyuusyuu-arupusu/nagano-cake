@@ -15,7 +15,7 @@
   	  </table>
   	</div>
   	<div class="col-md-9">
-      <h2>商品一覧(前件)</h2>
+      <h2><%= @text %>一覧(全<%= link_to @items.count %>件)</h2>
   	  <% @items.each do |i| %>
   	  <div class="col-md-3">
   	  	<%= attachment_image_tag i, :image, :fill, 150, 150, format: 'jpeg' %>

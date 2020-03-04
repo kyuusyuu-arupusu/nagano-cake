@@ -1,13 +1,13 @@
 <div class="container">
   <h3>マイページ</h3>
   <div class="row">
-  	<div class="col-xs-1">
+  	<div class="col-xs-2">
 	  <p>登録情報</p>
 	</div>
 	<div class="col-xs-1">
 	  <%= link_to "編集する", edit_customers_customer_path(@customer.id), class: "btn btn-info" %>
 	</div>
-	<div class=col-xs-1>
+	<div class="col-xs-2 col-xs-offset-1">
       <%= link_to "パスワードを編集する", "#", class: "btn btn-info" %>
     </div>
   </div>
@@ -15,38 +15,49 @@
     <div class="col-xs-8">
 	  <table class="table table-bordered">
 	  	<tbody>
-	      <tr>
-	      	<td>氏名</td>
+	      <tr >
+	      	<td class="active">氏名</td>
 	      	<td><%= @customer.last_name %></td>
 	      </tr>
 	      <tr>
-	      	<td>カナ</td>
+	      	<td class="active">カナ</td>
 	      	<td><%= @customer.last_name_kana %></td>
 	      </tr>
 	      <tr>
-	      	<td>郵便番号</td>
+	      	<td class="active">郵便番号</td>
 	      	<td><%= @customer.post_code %></td>
 	      </tr>
 	      <tr>
-	      	<td>住所</td>
+	      	<td class="active">住所</td>
 	      	<td><%= @customer.address %></td>
 	      </tr>
 	      <tr>
-	      	<td>電話番号</td>
+	      	<td class="active">電話番号</td>
 	      	<td><%= @customer.phone_number %></td>
 	      </tr>
 	      <tr>
-	      	<td>メールアドレス</td>
+	      	<td class="active">メールアドレス</td>
 	      	<td><%= @customer.email %></td>
 	      </tr>
 	  	</tbody>
 	  </table>
     </div>
   </div>
-      <p>配送先</p>
-      <%= link_to "一覧を見る", customers_customers_customers_id_shipping_addresses_path(@shipping_addresses), class: "btn btn-info" %>
-      <p>注文履歴</p>
-      <%= link_to "一覧を見る",  customers_orders_path, class: "btn btn-info" %>
+    <div class="row">
+      <div class="col-xs-2">
+        <p><strong>配送先</strong></p>
+      </div>
+      <div class="col-xs-1">
+        <%= link_to "一覧を見る", customers_customers_customers_id_shipping_addresses_path(@shipping_addresses), class: "btn btn-info" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2">
+        <p><strong>注文履歴</strong></p>
+      </div>
+      <div class="col-xs-1">
+        <%= link_to "一覧を見る",  customers_orders_path, class: "btn btn-info" %>
+      </div>
     </div>
   </div>
 </div>
