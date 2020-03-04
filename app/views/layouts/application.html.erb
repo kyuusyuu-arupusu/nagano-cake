@@ -11,8 +11,8 @@
   </head>
 
   <body>
-    <hader>
-      <nav class="navbar navbar-inverse">
+    <header>
+      <nav class="navbar navbar-invers bg-danger" style="padding: 40px;">
         <div class="container-fluid">
           <div class="navbar-header">
           <% if admin_signed_in? %>
@@ -31,8 +31,8 @@
                 <li class="">
                 <%=link_to destroy_admin_session_path, method: "delete" do %>ログアウト</li>
                 <% end %>
-          
                <% elsif customer_signed_in? %>
+                <%= current_customer.email %>
                 <li><%= link_to "MyPage", customers_customer_path(current_customer) %></li>
                 <li><%= link_to "Sweets List", customers_items_path %></li>
                 <li><%=link_to 'Order History', customers_orders_path %></li>
@@ -40,6 +40,11 @@
                 <li class="">
                   <%=link_to destroy_customer_session_path, method: "delete" do %>LogOut</li>
                   <% end %>
+                <li><form class="form-inline">
+                    <input class="form-control mr-sm-1" type="search">
+                    <button class="btn btn-info" type="submit">検索</button>
+                    </form>
+                </li>
                <% else %>
                 <li><%= link_to "Top", root_path %></li>
                 <li><%= link_to "About", customers_homes_about_path %></li></li>
@@ -49,9 +54,10 @@
             </ul>
         </div>
       </nav>
-    </hader>
+    </header>
       <%= yield %>
       <footer>
+        <p class=" text-center">©ながのCake</p>
       </footer>
   </body>
 </html>
