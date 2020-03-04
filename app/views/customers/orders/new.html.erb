@@ -1,10 +1,11 @@
 
 <div class="conteiner">
   <div class="row">
+     <%= form_with(model:@order, url:customers_orders_check_path, local: true) do |f| %>
   	<div class="col-xs-2"></div>
     <div class="col-xs-10">
 	  <h2>購入情報入力</h2>
-	  <%= form_with(model:@order, url:customers_orders_check_path, local: true) do |f| %>
+	 
 	   <strond><h3>支払方法</h3></strond>
 	</div>
 	  <div class="col-xs-2"></div>
