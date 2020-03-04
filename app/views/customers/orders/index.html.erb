@@ -8,24 +8,33 @@
   	<div class="col-md-12">
   	  <table class="table table-bordered">
   	    <thead>
-	      <tr>
-    	    <th>注文日</th>
-    	    <th>配送先</th>
-    	    <th>注文商品</th>
-    	    <th>支払金額</th>
-    	    <th>ステータス</th>
-    	    <th>注文詳細</th>
-	      </tr>
+  	      <tr class="active">
+      	    <th>注文日</th>
+      	    <th>配送先</th>
+      	    <th>注文商品</th>
+      	    <th>支払金額</th>
+      	    <th>ステータス</th>
+      	    <th>注文詳細</th>
+  	      </tr>
   	    </thead>
         <tbody>
-          <% @order_details.each do |order_detail| %>
+          <% @orders.each do |order| %>
           <tr>
-          	<td><%= order_detail.create_at %></td>
-          	<td><%= order_detail.order.address %></td>
-          	<td><%= order_detail.item_id.name %></td>
-          	<td><%= order_detail.price %></td>
-          	<td><%= order_detail.order_status %></td>
-          	<td><%= link_to "表示する", customers_order_path(order_detail), class: "btn btn-info" %></td>
+          	<td><%= order.created_at %></td>
+          	<td>
+              <%= order.post_code %>
+              <%= order.address %>
+              <%= order.customer.last_name %>               
+              <%= order.customer.first_name %>
+            </td>
+          	<td>
+              <% order.order_details.each do |d| %>
+                <%= d.item.name %>
+              <% end %>
+            </td>
+            <td><%= order.total_price %></td>
+          	<td><%= order.order_status %></td>
+          	<td><%= link_to "表示する", customers_order_path(order), class: "btn btn-info" %></td>
           </tr>
           <% end %>
   	    </tbody>
