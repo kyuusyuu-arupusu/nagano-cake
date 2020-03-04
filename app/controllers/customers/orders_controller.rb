@@ -1,4 +1,5 @@
 class Customers::OrdersController < ApplicationController
+  before_action :authenticate_customer!
   def new
     @order = Order.new
     @shipping_address = ShippingAddress.where(customer_id: current_customer.id)
@@ -13,6 +14,9 @@ class Customers::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_detail = @order.order_details
+    if current_customer.id != @order.customer.id
+      redirect_to customers_customer_path(current_customer.id)
+      end
   end
 
   def finish
