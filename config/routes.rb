@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :items, only: [:show, :index, :edit, :new, :create, :update]
 
-    resources :orders, only: [:index, :show]
+    resources :orders, only: [:index, :show, :update]
+    patch '/orders/:order_id/order_details/:id' => 'orders#order_detail_update',as: 'order_detail_update'
     resources :genres, only: [:index, :edit, :create, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     get '/admins/homes/top' => "homes#top", as: 'top'
@@ -20,8 +21,8 @@ Rails.application.routes.draw do
     resources :customers, only: [:show, :edit, :update, :destroy]
     resources :shipping_addresses, only: [:edit, :create, :update, :destroy]
     get '/customers/customers_id/shipping_addresses' => 'shipping_addresses#index'
-    resources :cart_items, only: [:create, :update, :destroy]
-    get '/customers/customer_id/cart_items' => "cart_items#index"
+    resources :cart_items, only: [:index, :create, :update, :destroy]
+    # get '/customers/customer_id/cart_items' => "cart_items#index"
     resources :items, only: [:index, :show]
   end
 

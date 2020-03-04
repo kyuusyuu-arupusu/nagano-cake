@@ -27,9 +27,8 @@
   	<div class="col-md-4 col-xs-offset-8">
   	  <%= form_for(@cart_item, url:customers_cart_items_path) do |i| %>
   	    <%= i.select :quantity, [["1","1"], ["2","2"], ["3","3"], ["4","4"], ["5","5"]], :include_blank =>"--選択してください--" %>
-    	<%= i.hidden_field :item_id, :value => @item.id %>
-
-  	    <%= i.submit "カートに入れる", class:"btn btn-info" %>
+    	  <%= i.hidden_field :item_id, :value => @item.id %>
+        <%= i.submit "カートに入れる", class:"btn btn-info" %>
       <% end %>
     </div>
   </div>

@@ -42,11 +42,9 @@ class Customers::OrdersController < ApplicationController
   end
 
   def create
-    # binding.pry
     cart_items = current_customer.cart_items
     order = Order.new(order_params)
     order.customer_id = current_customer.id
-    # binding.pry
     order.save
     cart_items.each do |cart_item|
     order_detail= OrderDetail.new
