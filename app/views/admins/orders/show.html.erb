@@ -80,5 +80,24 @@
       </tbody>
     </table>
   </div>
+  <div class="col-xs-4">
+  <table>
+  <tbody>
+  <th>
+    <tr>
+     
+      <td><h4>商品合計</h4></td>
+      <td><h4> <%= @order.total_price %>円</h4></td>
+    </tr>  	       
+     <td><h4>配送料</td>
+     <td><h4><%= @order.postage %>円</h4></td>
+  </tr>
+  <tr>
+    <td><h4>ご請求額</td>
+    <td><h4> <%= @order.total_price + @order.postage %>円</h4></td>
+  </tr>
+  </th>
+  </tbody>
+  </table>
 </div>
 </div>

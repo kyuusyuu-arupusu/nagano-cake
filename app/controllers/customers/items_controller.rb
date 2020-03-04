@@ -10,7 +10,6 @@ class Customers::ItemsController < ApplicationController
   # 	end
   # end
 
-
   def index
     @genres = Genre.where(display_status: true)
     if params[:genre].blank?
