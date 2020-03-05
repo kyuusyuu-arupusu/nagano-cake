@@ -1,4 +1,14 @@
 <div class="container">
+  <% if @shipping_address.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= @shipping_address.errors.count %>errors prohibited this obj from being saved:</h3>
+      <ul>
+        <% @shipping_address.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+  </div>
+  <% end %>
   <h3>配送先編集</h3>
   <div class="row">
   	<div class="col-xs-8">
@@ -25,3 +35,4 @@
    	</div>
   </div>
 </div>
+ 

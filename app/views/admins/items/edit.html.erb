@@ -1,14 +1,12 @@
 <div class="container">
   <div class="row">
+  	<%= form_for(@item, url: admins_item_path(@item.id)) do |f| %>
 	<div class="col-xs-4">
-	  <h1>商品編集</h1>
-	  <%= form_for(@item, url: admins_item_path(@item.id)) do |f| %>
+	  <h1>商品編集</h1>	  
 	  <%= attachment_image_tag @item, :image, :fill, 200,200, format: "jpg" %>
 	  <%= f.attachment_field :image %>
-	  <% end %>
 	</div>
 	<div class="col-xs-8">
-	<%= form_for(@item, url: admins_item_path(@item.id)) do |f| %>
 		<tbody>
 		  <th>
 			<tr>
@@ -36,7 +34,7 @@
 			</tr>
 		  </th>
 		</tbody>
-	<% end %>
     </div>
+    <% end %>
   </div>
 </div>

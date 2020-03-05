@@ -23,9 +23,12 @@ class Customers::CustomersController < ApplicationController
   end
 
   def update
-      customer = Customer.find(params[:id])
-      customer.update(customer_params)
+      @customer = Customer.find(params[:id])
+      if @customer.update(customer_params)
       redirect_to customers_customer_path
+      else
+      render :edit
+    end
   end
 
   def destroy

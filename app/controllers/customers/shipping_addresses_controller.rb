@@ -14,16 +14,23 @@ class Customers::ShippingAddressesController < ApplicationController
 
   def create
     # binding.pry
-      shipping_address = ShippingAddress.new(shipping_address_params)
-      shipping_address.customer_id = current_customer.id
-      shipping_address.save
-      redirect_to customers_customers_customers_id_shipping_addresses_path
+      @shipping_address = ShippingAddress.new(shipping_address_params)
+      @shipping_address.customer_id = current_customer.id
+      if @shipping_address.save
+        redirect_to customers_customers_customers_id_shipping_addresses_path
+      else
+        @shipping_addresses = ShippingAddress.where(customer_id: current_customer.id)
+        render :index
+      end
   end
 
   def update
-      shipping_address = ShippingAddress.find(params[:id])
-      shipping_address.update(shipping_address_params)
-      redirect_to customers_customers_customers_id_shipping_addresses_path
+        @shipping_address = ShippingAddress.find(params[:id])
+      if @shipping_address.update(shipping_address_params)
+        redirect_to customers_customers_customers_id_shipping_addresses_path
+      else
+        render :edit
+      end
   end
 
   def destroy
