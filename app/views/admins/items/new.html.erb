@@ -28,7 +28,7 @@
 			  </td>
 			  <td>
 			  <h4>販売ステータス</h4>
-        <%= f.select :sales_atatus, [["販売中","販売中"], ["売切れ", "売切れ"]], :include_blank =>"--選択してください--" %>
+        <%= f.select :sales_status, [["販売中","販売中"], ["売切れ", "売切れ"]], :include_blank =>"--選択してください--" %>
 			  </td><br>
 			  <%= f.submit "登録", class:"touroku-action btn btn-info" %>
 			</tr>

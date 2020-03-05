@@ -32,7 +32,7 @@
                 <%= d.item.name %>
               <% end %>
             </td>
-            <td><%= order.total_price %></td>
+            <td><%= order.total_price + order.postage %></td>
           	<td><%= order.order_status %></td>
           	<td><%= link_to "表示する", customers_order_path(order), class: "btn btn-info" %></td>
           </tr>

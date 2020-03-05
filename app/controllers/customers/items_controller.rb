@@ -13,7 +13,7 @@ class Customers::ItemsController < ApplicationController
   def index
     @genres = Genre.where(display_status: true)
     if params[:genre].blank?
-      @items_all = Item.where(sales_atatus: true)
+      @items_all = Item.where(sales_status: true)
       @text = "商品"
       @items = []
       @items_all.each do |item|
@@ -22,7 +22,7 @@ class Customers::ItemsController < ApplicationController
         end
       end
     else
-      @items_all = Item.where(genre_id: params[:genre]).where(sales_atatus: true)
+      @items_all = Item.where(genre_id: params[:genre]).where(sales_status: true)
       @text = Genre.find(params[:genre]).genre_name
       @items = []
       @items_all.each do |item|
