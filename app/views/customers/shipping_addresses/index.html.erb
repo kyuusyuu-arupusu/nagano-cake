@@ -1,4 +1,14 @@
 <div class="container">
+  <% if @shipping_address.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= @shipping_address.errors.count %>errors prohibited this obj from being saved:</h3>
+      <ul>
+        <% @shipping_address.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+  </div>
+  <% end %>
   <h3>配送先登録/一覧</h3>
   <div class="row">
   	<%= form_for(@shipping_address, url:customers_shipping_addresses_path) do |s| %>
@@ -23,7 +33,7 @@
     </div>
   	<% end %>
   	<div class="col-xs-7">
-      <table class="table table-bordered">
+      <table class="table table-bordered"> 
       	<thead>
       	  <th class="active">郵便番号</th>
       	  <th class="active">住所</th>

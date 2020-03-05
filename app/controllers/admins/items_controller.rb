@@ -14,8 +14,7 @@ class Admins::ItemsController < ApplicationController
 
   def create
   	@item = Item.new(item_params)
-  	@item.save
-     # binding.pry
+    @item.save
     redirect_to admins_items_path
   end
 
@@ -27,6 +26,7 @@ class Admins::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
+    # binding.pry
     redirect_to admins_item_path(@item.id)
   end
 

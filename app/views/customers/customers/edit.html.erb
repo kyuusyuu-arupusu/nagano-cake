@@ -1,4 +1,14 @@
 <div class="container">
+  <% if @customer.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= @customer.errors.count %>errors prohibited this obj from being saved:</h3>
+      <ul>
+        <% @customer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+  </div>
+  <% end %>
   <div class="row">
   	<div class="col-xs-2">
   	  <h3>登録者情報</h3>
@@ -13,27 +23,27 @@
   	  <%= form_for(@customer, url: customers_customer_path(@customer.id)) do |c| %>
 	  	<table class="table table-bordered">
 	  	  <tr>
-	  	  	<td>氏名</td>
-	  	  	<td><%= c.text_field :last_name %></td>
+	  	  	<td class="active">氏名</td>
+	  	  	<td><%= c.text_field :last_name %><%= c.text_field :first_name %></td>
 	  	  </tr>
 	  	  <tr>
-	  	  	<td>カナ</td>
-	  	    <td><%= c.text_field :last_name_kana %></td>
+	  	  	<td class="active">カナ</td>
+	  	    <td><%= c.text_field :last_name_kana %><%= c.text_field :first_name_kana %></td>
 	  	  </tr>
 	      <tr>
-	      	<td>郵便番号</td>
+	      	<td class="active">郵便番号</td>
 	      	<td><%= c.text_field :post_code %></td>
 	      </tr>
 	      <tr>
-	      	<td>住所</td>
+	      	<td class="active">住所</td>
 	        <td><%= c.text_field :address %></td>
 	      </tr>
 	      <tr>
-	      	<td>電話番号</td>
+	      	<td class="active">電話番号</td>
 	        <td><%= c.text_field :phone_number %></td>
 	      </tr>
 	      <tr>
-	      	<td>メールアドレス</td>
+	      	<td class="active">メールアドレス</td>
 	        <td><%= c.text_field :email %></td>
 	      </tr>
 	  　</table>

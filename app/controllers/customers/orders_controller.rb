@@ -19,7 +19,11 @@ class Customers::OrdersController < ApplicationController
   end
 
   def check
-    # binding.pry
+    # if params[:address] == "3"
+       # params[:new_post_code][:new_address][:new_name].blank?
+       # redirect_to new_customers_order_path
+    # end
+    
      @order = Order.new
      @total_price = params[:order][:total_price]
      @cart_items = current_customer.cart_items
@@ -37,6 +41,7 @@ class Customers::OrdersController < ApplicationController
       @address = params[:order][:new_address]
       @post_code = params[:order][:new_post_code]
       @name = params[:order][:new_name]
+      # binding.pry
     end
     # redirect_to customers_orders_check_path
   end
