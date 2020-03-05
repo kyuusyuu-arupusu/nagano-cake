@@ -1,4 +1,5 @@
 class Customers::ShippingAddressesController < ApplicationController
+    before_action :authenticate_customer!
   def index
       @shipping_address = ShippingAddress.new
       @shipping_addresses = ShippingAddress.where(customer_id: current_customer.id)
